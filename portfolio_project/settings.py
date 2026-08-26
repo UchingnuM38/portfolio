@@ -125,3 +125,7 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+print("===== MY SETTINGS LOADED =====")
+print("ALLOWED_HOSTS =", ALLOWED_HOSTS)
+print("DEBUG =", DEBUG)
+print("RENDER HOST =", os.environ.get("RENDER_EXTERNAL_HOSTNAME"))

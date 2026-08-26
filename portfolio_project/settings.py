@@ -8,7 +8,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    os.environ.get("RENDER_EXTERNAL_HOSTNAME"),
+    ".onrender.com",
     "localhost",
     "127.0.0.1",
 ]

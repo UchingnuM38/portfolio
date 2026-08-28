@@ -3,19 +3,20 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY",
+    "django-insecure-local-development-key-change-this"
+)
 
 DEBUG = False
 
+
 ALLOWED_HOSTS = [
-    ".onrender.com",
-    "localhost",
-    "127.0.0.1",
+    '.vercel.app',
+    'localhost',
+    '127.0.0.1',
 ]
 
-ALLOWED_HOSTS = [host for host in ALLOWED_HOSTS if host]
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -28,8 +29,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -125,7 +126,3 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
-print("===== MY SETTINGS LOADED =====")
-print("ALLOWED_HOSTS =", ALLOWED_HOSTS)
-print("DEBUG =", DEBUG)
-print("RENDER HOST =", os.environ.get("RENDER_EXTERNAL_HOSTNAME"))
